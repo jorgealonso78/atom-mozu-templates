@@ -1,0 +1,57 @@
+'scopeName': 'text.html.mozu'
+'fileTypes': [
+  'hypr'
+]
+'name': 'HTML (Mozu templates)'
+'patterns': [
+  {
+    'comment': 'Since html is valid in Mozu templates include the html patterns'
+    'include': 'text.html.basic'
+  }
+  {
+    'begin': '{% comment %}'
+    'end': '{% endcomment %}'
+    'name': 'comment.block.mozu.template'
+  }
+  {
+    'begin': '{#'
+    'end': '#}'
+    'name': 'comment.line.mozu.template'
+  }
+  {
+    'begin': '{{'
+    'end': '}}'
+    'name': 'variable.other.mozu.template'
+  }
+  {
+    'begin': '({%)'
+    'captures':
+      '1':
+        'name': 'entity.other.mozu.tagbraces'
+    'end': '(%})'
+    'name': 'meta.scope.mozu.template.tag'
+    'patterns': [
+      {
+        'match': '\\b(autoescape|endautoescape|block|endblock|trans|blocktrans|endblocktrans|plural|debug|extends|filter|firstof|for|endfor|if|include|else|elif|endif|ifchanged|endifchanged|ifequal|endifequal|ifnotequal|endifnotequal|load|now|regroup|ssi|spaceless|templatetag|widthratio|with|endwith)\\b'
+        'name': 'keyword.control.mozu.template'
+      }
+      {
+        'match': '\\b(and|or|not|in|by|as)\\b'
+        'name': 'keyword.operator.mozu.template'
+      }
+      {
+        'match': '\\|(add|addslashes|capfirst|center|cut|date|default|default_if_none|dictsort|dictsortreversed|divisibleby|escape|filesizeformat|first|fix_ampersands|floatformat|get_digit|join|length|length_is|linebreaks|linebreaksbr|linenumbers|ljust|lower|make_list|phone2numeric|pluralize|pprint|random|removetags|rjust|safe|slice|slugify|stringformat|striptags|time|timesince|title|truncatewords|unordered_list|upper|urlencode|urlize|urlizetrunc|wordcount|wordwrap|yesno)\\b'
+        'name': 'support.function.filter.mozu'
+      }
+      {
+        'begin': '(\'|")'
+        'end': '\\1'
+        'name': 'string.other.mozu.template.tag'
+      }
+      {
+        'match': '[a-zA-Z_]+'
+        'name': 'string.unquoted.mozu.template.tag'
+      }
+    ]
+  }
+]
