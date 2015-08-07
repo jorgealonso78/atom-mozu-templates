@@ -7,7 +7,7 @@
   "activationCommands": {
     "atom-workspace": "mozu:toggle"
   },
-  "repository": "https://github.com/atom/mozu",
+  "repository": "https://github.com/jorgealonso78/atom-mozu-templates",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
